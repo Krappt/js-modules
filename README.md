@@ -29,5 +29,5 @@
 
 ## Вызов
 
-`KrapptUtils.CustomEvent.subscribe(this); //подпись на событие
- KrapptUtils.CustomEvent.publish({event: type, data: data}) //вызов событие. event(string) -  название события, data (*) - какие-либо данные для передачи;`
+`KrapptUtils.CustomEvent.subscribe(this); //подпись на событие`
+`KrapptUtils.CustomEvent.publish({event: type, data: data}) //вызов событие. event(string) -  название события, data (*) - какие-либо данные для передачи;`
