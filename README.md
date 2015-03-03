@@ -13,8 +13,6 @@
 
 `KrapptUtils.AjaxService.call(name, params, method, callback)`
 
-### Параметры
-
 * name (string) - название метода.
 * params (object) - параметры запроса.
 * method (string) - тип метода (GET, POST, DELETE, PUT).
