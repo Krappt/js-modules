@@ -5,7 +5,7 @@ var KrapptUtils = {};
 
         AjaxService.apiURL = "";
         
-        AjaxService.call = function (url, params, method, callback) {
+        AjaxService.call = function (name, params, method, callback) {
             var stringParam = "";
             if (!params) params = {};
 
@@ -19,18 +19,18 @@ var KrapptUtils = {};
                 }
             }
 
-            url = AjaxService.apiURL + url;
+            name = AjaxService.apiURL + name;
 
-            AjaxService.request(url, stringParam, method, function (responseText) {
+            AjaxService.request(name, stringParam, method, function (responseText) {
                 if (responseText.length > 0) var response = JSON.parse(responseText);
                 callback(response)
             });
 
         };
 
-        AjaxService.createCrossDomainRequest = function (isOldIE) {
+        AjaxService.createCrossDomainRequest = function (isXDR) {
             var request;
-            if (isOldIE) {
+            if (isXDR) {
                 request = new window.XDomainRequest();
             }
             else {
@@ -40,12 +40,12 @@ var KrapptUtils = {};
         };
 
         AjaxService.request = function (url, stringParam, method, callback, requestCount) {
-            var isOldIE = false;
+            var isXDR = false;
             var baseUrl = url;
             if (!requestCount) requestCount = 1;
-            if (navigator.appName.indexOf("Internet Explorer") != -1) isOldIE = navigator.appVersion.indexOf("MSIE 9") > 0 || navigator.appVersion.indexOf("MSIE 8") > 0;
+            if (navigator.appName.indexOf("Internet Explorer") != -1) isXDR = navigator.appVersion.indexOf("MSIE 9") > 0 || navigator.appVersion.indexOf("MSIE 8") > 0;
 
-            var invocation = AjaxService.createCrossDomainRequest(isOldIE);
+            var invocation = AjaxService.createCrossDomainRequest(isXDR);
 
             var output = function outputResult() {
                 callback(invocation.responseText);
@@ -65,7 +65,7 @@ var KrapptUtils = {};
             };
 
             if (invocation) {
-                if (isOldIE) {
+                if (isXDR) {
                     if (stringParam.indexOf("date=") == -1 && stringParam.length > 0) stringParam += "&date=" + Math.round((new Date()).getTime() / 1000);
                     else if (stringParam.indexOf("date=") == -1 && stringParam.length == 0) {
                         stringParam += "date=" + Math.round((new Date()).getTime() / 1000);
