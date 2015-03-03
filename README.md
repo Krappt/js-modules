@@ -8,6 +8,7 @@
 * Chrome 1.0+
 * FireFox 1.0+
 * Safari 1.2+
+* Opera 8.01+
 
 ## Вызов
 
