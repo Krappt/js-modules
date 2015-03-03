@@ -10,7 +10,7 @@
 * Safari 1.2+
 * Opera 8.01+
 
-## Вызов
+## Использование
 
 `KrapptUtils.AjaxService.call(name, params, method, callback)`
 
@@ -27,7 +27,13 @@
 
 Модуль инициализируется в нужной области видимости (scope) и добавляется в общий пулл, после вызова какой-либо функции, модуль проводит поиск необходимой функции в каждом элементе пулла.
 
-## Вызов
+## Использование
 
-`KrapptUtils.CustomEvent.subscribe(this); //подпись на событие`
-`KrapptUtils.CustomEvent.publish({event: type, data: data}) //вызов событие. event(string) -  название события, data (*) - какие-либо данные для передачи;`
+#### Подпись на событие
+`KrapptUtils.CustomEvent.subscribe(this);`
+
+#### Вызов события
+`KrapptUtils.CustomEvent.publish({event: type, data: data}) `
+
+* event (string) - название события.
+* data (*) - какие-либо данные для передачи.
